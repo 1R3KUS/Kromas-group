@@ -52,7 +52,7 @@ html {
 }
 .header__content {
   height: 100vh;
-  background-image: url("/img/main-img.png");
+  background-image: url("../img/main-img.png");
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -484,7 +484,7 @@ html {
     padding-right: 100px;
   }
   .header__content {
-    background-image: url("/img/main-img(1024).png");
+    background-image: url("../img/main-img(1024).png");
     background-repeat: no-repeat;
     border-radius: 0;
     background-size: cover;
