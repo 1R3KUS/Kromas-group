@@ -12,6 +12,84 @@ html {
   scroll-behavior: smooth;
 }
 
+.slider_size {
+  height: 850px;
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider__wrapper {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slider__item {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.slider__control {
+  position: absolute;
+  top: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  height: 50px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.slider__control_show {
+  display: flex;
+}
+
+.slider__control:hover,
+.slider__control:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  opacity: 0.9;
+}
+
+.slider__control_left {
+  left: 0;
+}
+
+.slider__control_right {
+  right: 0;
+}
+
+.slider__control::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: transparent no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.slider__control_left::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.slider__control_right::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.slider__item > div {
+  line-height: 250px;
+  font-size: 100px;
+  text-align: center;
+}
+
 .header {
   padding-top: 150px;
   padding-left: 200px;
@@ -47,27 +125,28 @@ html {
   font-weight: 500;
 }
 .header__content {
-  height: 100vh;
-  background-image: url('../img/main-img.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  height: 1000px;
+  padding-top: 50px;
+}
+
+.header__text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 300px;
-  border-top-right-radius: 20px;
-  overflow: hidden;
-  height: 850px;
 }
-.header__content h1 {
+
+.header__text h1 {
   font-size: 50px;
   font-weight: 400;
-  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.3);
-  color: #fff;
+  color: #000000cc;
   text-align: center;
   margin-bottom: 50px;
 }
-.header__content a {
+.header__text .button-types {
   background-color: #2dceef;
   padding: 16px 50px;
   border-radius: 10px;
@@ -398,8 +477,8 @@ html {
     padding-right: 100px;
   }
   .header__content {
-    height: 650px;
-    padding-top: 250px;
+    height: 850px;
+    padding-top: 50px;
   }
 
   .description {
@@ -460,18 +539,6 @@ html {
   .footer__map div iframe {
     width: 1000px;
   }
-
-  .list {
-    display: none;
-  }
-
-  .number {
-    display: none;
-  }
-
-  .modal {
-    display: flex;
-  }
 }
 @media (max-width: 1024px) {
   .header {
@@ -484,18 +551,14 @@ html {
     padding-right: 100px;
   }
   .header__content {
-    background-image: url('../img/main-img(1024).png');
-    background-repeat: no-repeat;
-    border-radius: 0;
-    background-size: cover;
-    padding-top: 200px;
-    height: 650px;
+    padding-top: 50px;
+    height: 800px;
   }
-  .header__content h1 {
+  .header__text h1 {
     font-size: 45px;
     margin-bottom: 30px;
   }
-  .header__content a {
+  .header__text .button-types {
     padding: 10px 30px;
     font-size: 18px;
   }
@@ -578,6 +641,18 @@ html {
     font-size: 18px;
     color: #fff;
   }
+
+  .list {
+    display: none;
+  }
+
+  .number {
+    display: none;
+  }
+
+  .modal {
+    display: flex;
+  }
 }
 @media (max-width: 840px) {
   .description {
@@ -650,6 +725,10 @@ html {
   }
 }
 @media (max-width: 650px) {
+  .slider_size {
+    height: 350px;
+  }
+
   .header {
     padding-left: 0px;
     padding-right: 0px;
@@ -660,13 +739,12 @@ html {
     padding-right: 25px;
   }
   .header__content {
-    padding-top: 150px;
-    height: 450px;
+    height: 500px;
   }
-  .header__content h1 {
+  .header__text h1 {
     font-size: 28px;
   }
-  .header__content a {
+  .header__text .button-types {
     font-size: 16px;
   }
 
